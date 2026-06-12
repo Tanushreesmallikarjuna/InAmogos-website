@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>InAmigos Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#1D9E75;--gd:#0F6E56;--gl:#E1F5EE;--gm:#5DCAA5;
+  --am:#EF9F27;--al:#FAEEDA;--co:#D85A30;
+  --tx:#1a1a1a;--tm:#555;--bg:#fff;--ba:#F7FAF8;
+  --br:rgba(0,0,0,0.09);--r:12px;--rs:7px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--tx);background:var(--bg);font-size:14px}
+a{text-decoration:none}
+
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--br);
+  padding:0 4%;display:flex;align-items:center;justify-content:space-between;height:54px;
+}
+.logo{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--gd);display:flex;align-items:center;gap:8px}
+.logo-dot{width:8px;height:8px;background:var(--am);border-radius:50%}
+.nav-links{display:flex;gap:22px;list-style:none}
+.nav-links a{font-size:13px;color:var(--tm);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--g)}
+.nav-btn{background:var(--g);color:#fff;border:none;padding:7px 18px;border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Sora',sans-serif}
+
+#home{background:linear-gradient(135deg,#E1F5EE 0%,#F7FAF8 55%,#FAEEDA 100%);padding:44px 4% 36px}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--br);border-radius:100px;padding:5px 14px;font-size:12px;color:var(--gd);font-weight:500;margin-bottom:18px}
+.hero-badge span{width:6px;height:6px;background:var(--g);border-radius:50%}
+.hero-title{font-family:'Sora',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.18;color:#0a2016;margin-bottom:14px}
+.hero-title .ac{color:var(--g)}
+.hero-sub{font-size:14px;line-height:1.7;color:var(--tm);max-width:500px;margin-bottom:22px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.btn-p{background:var(--g);color:#fff;padding:10px 24px;border-radius:100px;font-family:'Sora',sans-serif;font-size:13px;font-weight:600;border:none;cursor:pointer;display:inline-block;transition:background .2s}
+.btn-p:hover{background:var(--gd)}
+.btn-o{background:transparent;color:var(--gd);padding:10px 24px;border-radius:100px;font-family:'Sora',sans-serif;font-size:13px;font-weight:600;border:2px solid var(--g);cursor:pointer;display:inline-block;transition:all .2s}
+.btn-o:hover{background:var(--gl)}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap}
+.stat-num{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--gd)}
+.stat-label{font-size:12px;color:var(--tm);margin-top:1px}
+
+section{padding:36px 4%}
+.lbl{font-size:11px;font-weight:600;letter-spacing:2px;color:var(--g);text-transform:uppercase;margin-bottom:6px}
+.stitle{font-family:'Sora',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:#0a2016;margin-bottom:10px}
+.ssub{font-size:13px;line-height:1.7;color:var(--tm);max-width:540px}
+
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-top:24px}
+.about-visual{background:var(--gl);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px}
+.acard{background:#fff;border-radius:var(--rs);padding:12px 14px;display:flex;align-items:center;gap:11px;border:1px solid var(--br)}
+.aicon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.acard strong{font-size:13px;display:block;color:var(--tx)}
+.acard span{font-size:12px;color:var(--tm)}
+.about-content p{font-size:13px;line-height:1.75;color:var(--tm);margin-bottom:12px}
+.vlist{list-style:none;margin-top:4px}
+.vlist li{display:flex;align-items:center;gap:8px;font-size:13px;padding:4px 0;color:var(--tx)}
+.vlist li::before{content:'';width:7px;height:7px;background:var(--g);border-radius:50%;flex-shrink:0}
+
+.mbar{background:var(--gd);color:#fff;padding:28px 4%;text-align:center}
+.mbar blockquote{font-family:'Sora',sans-serif;font-size:clamp(1rem,2vw,1.4rem);font-weight:600;line-height:1.55;max-width:660px;margin:0 auto;opacity:.95}
+.mbar cite{display:block;margin-top:10px;font-size:12px;opacity:.55;font-style:normal}
+
+#programs{background:var(--ba)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px}
+.pcard{background:#fff;border-radius:var(--r);border:1px solid var(--br);padding:20px 18px;transition:box-shadow .2s,transform .2s}
+.pcard:hover{box-shadow:0 6px 24px rgba(15,110,86,.1);transform:translateY(-2px)}
+.picon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+.pg{background:var(--gl)}.pa{background:var(--al)}.pc{background:#FAECE7}.pb{background:#E6F1FB}
+.pcard h3{font-family:'Sora',sans-serif;font-size:14px;font-weight:600;color:var(--tx);margin-bottom:7px}
+.pcard p{font-size:12.5px;line-height:1.65;color:var(--tm)}
+.ptag{display:inline-block;margin-top:12px;font-size:11px;font-weight:600;color:var(--g);background:var(--gl);padding:3px 10px;border-radius:100px}
+
+#impact{background:var(--bg)}
+.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:24px}
+.icard{background:var(--ba);border-radius:var(--r);padding:20px 14px;text-align:center;border:1px solid var(--br)}
+.inum{font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:var(--gd);display:block}
+.ilbl{font-size:12px;color:var(--tm);margin-top:4px;line-height:1.4}
+.istory{background:var(--gl);border-radius:var(--r);padding:28px;margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.squote{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;color:var(--gd);line-height:1.6;margin-bottom:10px}
+.sattr{font-size:12px;color:var(--tm)}
+.stags{display:flex;flex-direction:column;gap:9px}
+.stag{background:#fff;border-radius:var(--rs);padding:11px 14px;border:1px solid var(--br);display:flex;align-items:center;gap:10px}
+.sdot{width:8px;height:8px;border-radius:50%;background:var(--g);flex-shrink:0}
+.stag span{font-size:13px;color:var(--tx)}
+
+#involve{background:var(--ba)}
+.invgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px}
+.invcard{background:#fff;border-radius:var(--r);border:1px solid var(--br);padding:22px 18px;text-align:center}
+.invnum{font-family:'Sora',sans-serif;font-size:34px;font-weight:700;color:var(--gl);-webkit-text-stroke:2px var(--gm);display:block;line-height:1}
+.invcard h3{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;color:var(--tx);margin:10px 0 8px}
+.invcard p{font-size:13px;color:var(--tm);line-height:1.6}
+.invcta{text-align:center;margin-top:24px}
+.invcta p{font-size:13px;color:var(--tm);margin-bottom:14px}
+
+#contact{background:var(--bg)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:24px;align-items:start}
+.cinfo h3{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;color:var(--tx);margin-bottom:16px}
+.citem{display:flex;align-items:flex-start;gap:11px;margin-bottom:16px}
+.cdot{width:32px;height:32px;border-radius:8px;background:var(--gl);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:2px}
+.citem strong{font-size:13px;display:block;color:var(--tx);font-weight:600}
+.citem span{font-size:12.5px;color:var(--tm)}
+.cform{display:flex;flex-direction:column;gap:11px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg label{font-size:12px;font-weight:500;color:var(--tx)}
+.fg input,.fg textarea,.fg select{border:1px solid var(--br);border-radius:var(--rs);padding:9px 12px;font-size:13px;font-family:'Inter',sans-serif;color:var(--tx);background:var(--ba);transition:border-color .2s;outline:none;resize:vertical}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--g);background:#fff}
+.fg textarea{min-height:80px}
+
+footer{background:#0a2016;color:#fff;padding:36px 4% 22px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px}
+.fbrand h3{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:10px}
+.fbrand p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65;max-width:230px}
+.fcol h4{font-family:'Sora',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:12px}
+.fcol a,.fcol p{display:block;font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.fcol a:hover{color:var(--gm)}
+.fbot{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.fbot p{font-size:12px;color:rgba(255,255,255,.28)}
+.fbadge{background:var(--gd);color:var(--gm);font-size:11px;font-weight:600;padding:4px 12px;border-radius:100px}
+
+@media(max-width:680px){
+  .about-grid,.cgrid,.istory,.fgrid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><span class="logo-dot"></span>InAmigos Foundation</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-btn">Donate Now</button>
+</nav>
+
+<section id="home">
+  <div class="hero-badge"><span></span>Section 8 Non-Profit · Registered in India</div>
+  <h1 class="hero-title">Empowering Lives,<br><span class="ac">Building Futures</span> Together</h1>
+  <p class="hero-sub">InAmigos Foundation is a registered Section 8 non-profit working at the intersection of education, skill development, and community upliftment across India.</p>
+  <div class="hero-btns">
+    <a href="#programs" class="btn-p">Explore Programs</a>
+    <a href="#involve" class="btn-o">Get Involved</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">5,000+</div><div class="stat-label">Lives Impacted</div></div>
+    <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Active Programs</div></div>
+    <div class="stat"><div class="stat-num">800+</div><div class="stat-label">Volunteers</div></div>
+    <div class="stat"><div class="stat-num">18</div><div class="stat-label">States Reached</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="lbl">About Us</div>
+  <h2 class="stitle">Who We Are</h2>
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="acard"><div class="aicon" style="background:#E1F5EE">🌱</div><div><strong>Community Driven</strong><span>Rooted in local needs and voices</span></div></div>
+      <div class="acard"><div class="aicon" style="background:#FAEEDA">🎓</div><div><strong>Education First</strong><span>Scholarships, mentorship & skill training</span></div></div>
+      <div class="acard"><div class="aicon" style="background:#FAECE7">🤝</div><div><strong>Transparent Operations</strong><span>Section 8 registered, fully compliant NGO</span></div></div>
+      <div class="acard"><div class="aicon" style="background:#E6F1FB">💡</div><div><strong>Innovation in Impact</strong><span>Tech-enabled programs for scale</span></div></div>
+    </div>
+    <div class="about-content">
+      <p>Founded with a vision to bridge the gap between potential and opportunity, InAmigos Foundation operates as a registered Section 8 not-for-profit company in India. We work with students, youth, and underserved communities to create sustainable, long-term change.</p>
+      <p>Our volunteer-driven model brings together professionals, students, and changemakers who contribute thousands of hours annually toward education, digital literacy, livelihood programs, and environmental awareness.</p>
+      <p>Our core values guide every initiative:</p>
+      <ul class="vlist">
+        <li>Inclusion — Equal opportunity for every individual</li>
+        <li>Integrity — Transparent and ethical action</li>
+        <li>Innovation — Technology as a tool for social good</li>
+        <li>Impact — Measurable, lasting community change</li>
+        <li>Inspiration — Growing leaders from within communities</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="mbar">
+  <blockquote>"We believe that a single act of compassion, multiplied by thousands of volunteers, can rewrite the destiny of entire communities."</blockquote>
+  <cite>— InAmigos Foundation Mission Statement</cite>
+</div>
+
+<section id="programs">
+  <div class="lbl">Our Work</div>
+  <h2 class="stitle">Programs & Initiatives</h2>
+  <p class="ssub">From digital literacy to livelihood training, our programs address the most pressing needs of underserved communities across India.</p>
+  <div class="pgrid">
+    <div class="pcard"><div class="picon pg">🎓</div><h3>EduBridge Scholarships</h3><p>Financial aid, mentorship, and career guidance for meritorious students from low-income families.</p><span class="ptag">Education</span></div>
+    <div class="pcard"><div class="picon pa">💻</div><h3>Digital Literacy Mission</h3><p>Hands-on computing and internet training for youth and women in rural and semi-urban areas.</p><span class="ptag">Technology</span></div>
+    <div class="pcard"><div class="picon pc">🌿</div><h3>Green India Initiative</h3><p>Tree plantation, sustainability workshops, and environmental awareness engaging local schools.</p><span class="ptag">Environment</span></div>
+    <div class="pcard"><div class="picon pb">🧑‍💼</div><h3>Skill India Bootcamps</h3><p>Vocational training and soft-skills workshops helping unemployed youth enter the workforce.</p><span class="ptag">Livelihood</span></div>
+    <div class="pcard"><div class="picon pg">👩‍⚕️</div><h3>Health Awareness Camps</h3><p>Free medical check-ups, nutrition counselling, and mental health awareness in underserved areas.</p><span class="ptag">Health</span></div>
+    <div class="pcard"><div class="picon pa">🏆</div><h3>Internship Program</h3><p>Connecting passionate students with real non-profit tasks, building social empathy and professional skills.</p><span class="ptag">Youth</span></div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="lbl">Our Impact</div>
+  <h2 class="stitle">Numbers That Matter</h2>
+  <p class="ssub">Every statistic represents a real person whose life has been touched.</p>
+  <div class="igrid">
+    <div class="icard"><span class="inum">5,200+</span><div class="ilbl">Beneficiaries reached</div></div>
+    <div class="icard"><span class="inum">830+</span><div class="ilbl">Active volunteers</div></div>
+    <div class="icard"><span class="inum">₹48L+</span><div class="ilbl">Scholarships disbursed</div></div>
+    <div class="icard"><span class="inum">120+</span><div class="ilbl">Communities served</div></div>
+    <div class="icard"><span class="inum">18</span><div class="ilbl">States with presence</div></div>
+    <div class="icard"><span class="inum">95%</span><div class="ilbl">Beneficiary satisfaction</div></div>
+  </div>
+  <div class="istory">
+    <div>
+      <p class="squote">"The digital literacy program changed everything for me. I went from not knowing how to use a smartphone to landing my first remote job in six months."</p>
+      <p class="sattr">— Priya M., beneficiary · Tumkur, Karnataka</p>
+    </div>
+    <div class="stags">
+      <div class="stag"><div class="sdot"></div><span>3-month Digital Literacy training completed</span></div>
+      <div class="stag"><div class="sdot" style="background:#EF9F27"></div><span>Placed as remote data entry associate</span></div>
+      <div class="stag"><div class="sdot" style="background:#D85A30"></div><span>Now mentoring 4 other young women</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="involve">
+  <div class="lbl">Join Us</div>
+  <h2 class="stitle">How You Can Help</h2>
+  <p class="ssub">There are many ways to be part of the InAmigos family — every contribution creates ripples of change.</p>
+  <div class="invgrid">
+    <div class="invcard"><span class="invnum">01</span><h3>Volunteer</h3><p>On-ground and remote opportunities open year-round for anyone with time and passion.</p></div>
+    <div class="invcard"><span class="invnum">02</span><h3>Donate</h3><p>Every rupee goes directly toward programs. 80G tax deduction eligible under Income Tax Act.</p></div>
+    <div class="invcard"><span class="invnum">03</span><h3>Partner</h3><p>CSR partnerships and institutional collaborations help us scale reach and deepen impact.</p></div>
+    <div class="invcard"><span class="invnum">04</span><h3>Intern</h3><p>Students can apply for structured internship tasks that build real skills while serving social good.</p></div>
+  </div>
+  <div class="invcta">
+    <p>Ready to make a difference? Reach out and we'll match you with the right opportunity.</p>
+    <a href="#contact" class="btn-p">Get in Touch</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="lbl">Contact</div>
+  <h2 class="stitle">Reach Out to Us</h2>
+  <div class="cgrid">
+    <div class="cinfo">
+      <h3>We'd love to hear from you</h3>
+      <div class="citem"><div class="cdot">📍</div><div><strong>Registered Office</strong><span>InAmigos Foundation, India<br>Section 8 Company · CIN registered</span></div></div>
+      <div class="citem"><div class="cdot">📧</div><div><strong>Email Us</strong><span>contact@inamigosfoundation.org<br>partnerships@inamigosfoundation.org</span></div></div>
+      <div class="citem"><div class="cdot">🌐</div><div><strong>Social Media</strong><span>LinkedIn · Instagram · Twitter<br>@InAmigosFoundation</span></div></div>
+      <div class="citem"><div class="cdot">🕐</div><div><strong>Response Time</strong><span>Within 48 hours · Mon–Sat, 9 AM–6 PM IST</span></div></div>
+    </div>
+    <div class="cform">
+      <div class="frow">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="Your first name" /></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Your last name" /></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com" /></div>
+      <div class="fg"><label>I want to...</label>
+        <select>
+          <option value="">Select your interest</option>
+          <option>Volunteer with InAmigos</option>
+          <option>Donate or fund a program</option>
+          <option>Apply for an internship</option>
+          <option>Explore CSR partnership</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="Tell us a bit about yourself..."></textarea></div>
+      <button class="btn-p" style="align-self:flex-start;border:none">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fgrid">
+    <div class="fbrand"><h3>InAmigos Foundation</h3><p>A Section 8 non-profit committed to education, skill development, and community empowerment across India.</p></div>
+    <div class="fcol"><h4>Programs</h4><a href="#programs">EduBridge Scholarships</a><a href="#programs">Digital Literacy</a><a href="#programs">Skill Bootcamps</a><a href="#programs">Health Camps</a></div>
+    <div class="fcol"><h4>Organisation</h4><a href="#about">About Us</a><a href="#impact">Our Impact</a><a href="#involve">Volunteer</a><a href="#contact">Contact</a></div>
+    <div class="fcol"><h4>Legal</h4><p>Section 8 Company</p><p>80G Tax Exemption</p><p>FCRA Compliant</p></div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 InAmigos Foundation. All rights reserved. Made with ❤️ for India.</p>
+    <span class="fbadge">Section 8 NGO</span>
+  </div>
+</footer>
+
+</body>
+</html>
